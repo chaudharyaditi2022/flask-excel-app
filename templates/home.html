@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Open</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body style="background-color:#822CB3" >
+        <div  class="well" style=" text-align: center; width: 40%; height: 40%; position:absolute; top:0; left:0; right: 0; bottom: 0; margin: auto;">
+            <form method='POST' action="/output" enctype="multipart/form-data">
+                <h3><label for="myfile">Select an Excel file</label></h3></br>
+                <input type="file" class="form-control" id="myfile" name="excel_file" required accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel "/></br>
+                <input type="submit" class="btn btn-lg btn-success "name="openfile"/>
+            </form>
+      </div>  

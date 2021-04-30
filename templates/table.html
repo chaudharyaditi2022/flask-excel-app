@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>{{ filename }}</title>
+        <link rel="stylesheet" href="/static/styles/style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body style="background-color:ghostwhite" >
+      
+      <div style="background-color:#822CB3 ; height:20%; text-align: center;">
+        <button type="button"  style="margin: 60px 0px 10px 10px;" class="btn btn-info" data-toggle="modal" data-target="#addrow">Add Row</button>
+        <a href="/" target="blank"><button type="submit"  style="margin: 60px 0px 10px 10px;" class="btn btn-info" >Open New file</button></a>
+        <a href="/download/{{ filename }}" target="blank"><button style="margin: 60px 0px 10px 10px;" class='btn  btn-basic'>Download</button></a>
+      </div> 
+        <div id="addrow" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+          
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Add New Row</h4>
+                </div>
+                <div class="modal-body">
+                  <p>
+                    <form  method='POST' action="/output" >
+                    <input type="hidden" name="filename" value="{{ filename }}" />
+                    {% for header in headings %}
+                    <b style="font-size: medium;">{{ header }}</b></br>
+                    <input type='text' name='{{ header }}' placeholder='Enter {{ header}}' id='{{ header }}' class="form-control" /></br>
+                    {% endfor %}
+                    <input type="submit" class="btn btn-success " id="newrow" name="newrow" value="Submit"/>
+                  </form>
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+          
+            </div>
+          </div>
+    
+        <table class="table__layout center">
+        <thead>
+          <caption style="text-align: center; font-weight: bold;">{{ filename }}</caption>
+        <tr class="table__header">
+            {% for header in headings %}
+            <th class="table__cell">{{ header }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in data %}
+        <tr class="table__row"> 
+            {% for cell in row %}
+            <td class="table__cell">{{ cell }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+        
+    </body>
+
+  </html>
