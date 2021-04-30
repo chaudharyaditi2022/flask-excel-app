@@ -12,7 +12,7 @@ pip install flask pandas numpy
 pip install os
 ```
 
-##Usage
+## Usage
 
 To run the app use the following command :
 
@@ -20,11 +20,4 @@ To run the app use the following command :
 python flask-python-app/app.py
 ```
 
-## Contributing to <project_name>
-To contribute to <project_name>, follow these steps:
-
-Fork this repository.
-Create a branch: git checkout -b <branch_name>.
-Make your changes and commit them: git commit -m '<commit_message>'
-Push to the original branch: git push origin <project_name>/<location>
-Create the pull request.
+Thank you!!
